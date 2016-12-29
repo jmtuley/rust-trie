@@ -9,20 +9,26 @@ This library implements a [trie](https://en.wikipedia.org/wiki/Trie), abstracted
 ## Usage
 
 * Construct a new `Trie` with
+
   ```rust
 	let mut t = Trie::new();
   ```
+  
 * Insert a node for prefix `(1, 2, 3)` with
+
   ```rust
 	t.insert(vec![1,2,3], "example value");
   ```
+  
   Note that there must not already be a value with that key. However, you may insert into preexisting, but un-valued, keys:
+ 
   ```rust
 	t.insert(vec![1,2,3], "example value");
 	t.insert(vec![1,2,3], "new value");    // PANIC!
 	t.insert(vec![1,2], "prefix's value"); // OK!
   ```
 * Fetch the value for a given prefix with
+  
   ```rust
 	// assume t from previous example
 	t.fetch(vec![1,2,3]); // -> Some("example value")
